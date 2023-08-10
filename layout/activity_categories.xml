@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     tools:context="com.example.brainsurgeon.Categories">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -17,27 +18,36 @@
         app:title="Categories"
         app:titleTextColor="@color/white" />
 
-    <TextView
-        android:id="@+id/userDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bababooie"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.cardview.widget.CardView
+        android:padding="100dp"
+        android:gravity="center"
+        android:id="@+id/cardView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="149dp"
-        android:text="Choose a category to start playing!"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/userDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Hello!"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnAdhd"
@@ -55,10 +65,10 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="547dp"
+        android:layout_marginTop="416dp"
+        android:background="@color/secondary"
         android:text="Autism"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/secondary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -66,10 +76,10 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="395dp"
+        android:layout_marginTop="328dp"
+        android:background="@color/secondary"
         android:text="Depression"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/secondary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -86,8 +96,8 @@
         android:id="@+id/HighScore2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="279dp"
-        android:layout_marginTop="411dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="344dp"
         android:text="High Score: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -96,8 +106,8 @@
         android:id="@+id/HighScore3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="279dp"
-        android:layout_marginTop="564dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="428dp"
         android:text="High Score: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -106,8 +116,23 @@
         android:id="@+id/imageView"
         android:layout_width="53dp"
         android:layout_height="49dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="620dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_preferences" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="508dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/waves2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

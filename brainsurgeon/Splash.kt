@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import com.example.BrainSurgeon.R
 
 class Splash : AppCompatActivity() {
@@ -15,6 +16,7 @@ class Splash : AppCompatActivity() {
 
         Handler().postDelayed({
             val intent = Intent( this@Splash, MainActivity::class.java)
+            Log.d("welcome", "app is working")
             startActivity(intent)
             finish()
         }, 2000)

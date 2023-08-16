@@ -1,5 +1,6 @@
 package com.example.brainsurgeon
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,20 +13,33 @@ class Categories : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityCategoriesBinding.inflate(layoutInflater)
         val view = binding.root
+        setContentView(binding.root)
 
-        setContentView(R.layout.activity_categories)
-
-        val username = intent?.extras?.getString("username")
-
-        binding.userDisplay.text = "Hi, $username"
-
-        Log.d("Hi : ", username.toString())
+        val username = intent?.getStringExtra("username")
+        binding.userDisplay.text = "Hello, $username! Choose a category to get started!"
 
 
+        binding.btnAdhd.setText("ADHD: 0/3")
+        binding.btnTism.setText("AUTISM 0/3")
+        binding.btnDepro.setText("DEPRESSION: 0/3")
 
 
+        binding.btnAdhd.setOnClickListener() {
+            val intent = Intent(this@Categories, Questionss::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.btnTism.setOnClickListener() {
+            val intent = Intent(this@Categories, Questionss::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.btnDepro.setOnClickListener() {
+            val intent = Intent(this@Categories, Questionss::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

@@ -55,13 +55,12 @@
                 android:src="@drawable/gangstalker" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tillayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 app:boxStrokeColor="@color/primary"
                 android:textColorHint="@color/black">
-
-
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username"
@@ -71,7 +70,7 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,8 +78,8 @@
                 android:text="Submit"
                 android:textSize="21sp"
                 android:paddingVertical="12dp"
-                android:backgroundTint="@color/secondary"/>
-
+                app:cornerRadius="10dp"
+                android:backgroundTint="@color/secondary" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

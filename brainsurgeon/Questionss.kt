@@ -23,8 +23,8 @@ class Questionss : AppCompatActivity() {
         val username = intent?.getStringExtra("username")
         val questionNumber = intent.getIntExtra("questionNumber", 1)
         Log.d("Welcome: ", username.toString())
-
-        var score = 0
+        var score = intent.extras?.getInt("score", 0)
+        Log.d("USER SCORE: ", score.toString())
 
 //        call questions
         if(questionNumber == 1) {
@@ -38,6 +38,7 @@ class Questionss : AppCompatActivity() {
         binding.tbTitle.title = "Question ${currentQuestion.id}"
         binding.queTitle.text = currentQuestion.questionText
         binding.queImg.setImageResource(currentQuestion.icon)
+        binding.proggers.max = listOfQuestions.count()
         binding.rb1.text = currentQuestion.optionOne
         binding.rb2.text = currentQuestion.optionTwo
         binding.rb3.text = currentQuestion.optionThree
@@ -52,14 +53,27 @@ class Questionss : AppCompatActivity() {
                 val selectedAnswerValue = findViewById<RadioButton>(selectedAnswer)
 
                 if(selectedAnswerValue.text == currentQuestion.correctAnswer) {
-                    score++
+                    score = score!! + 1
                 }
 
-                val intent = Intent(this, Questionss::class.java)
-                intent.putExtra("questionNumber", questionNumber+1)
-                intent.putExtra("username", username.toString())
-                startActivity(intent)
-                finish()
+//                navigate to results screen after final question
+                if(questionNumber == listOfQuestions.count()) {
+                    Log.d("Final Score: ", score.toString())
+                    val intent = Intent(this, Results::class.java)
+                    intent.putExtra("totalQuestions", listOfQuestions.count())
+                    intent.putExtra("username", username.toString())
+                    intent.putExtra("score", score)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val intent = Intent(this, Questionss::class.java)
+                    intent.putExtra("questionNumber", questionNumber+1)
+                    intent.putExtra("username", username.toString())
+                    intent.putExtra("score", score)
+                    startActivity(intent)
+                    finish()
+                }
+
             } else {
                 Toast.makeText(this, "Please choose an answer", Toast.LENGTH_LONG).show()
             }

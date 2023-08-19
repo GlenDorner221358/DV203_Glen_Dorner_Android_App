@@ -1,13 +1,16 @@
 package com.example.brainsurgeon
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.BrainSurgeon.R
 import com.example.BrainSurgeon.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +37,21 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
+        }
 
+//        view last score
+        binding.lastscore.setOnClickListener{
+            val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+            val lastUser = sharedPref.getString("last_user", "No user found")
+            val lastScore = sharedPref.getInt("last_score", 0)
+
+            Log.d("LAST USER FROM STORAGE: ", lastUser + lastScore.toString())
+
+            val snack = Snackbar.make(it, lastUser!!, Snackbar.LENGTH_LONG)
+            snack.setAction(lastScore.toString(), View.OnClickListener{
+                //nothing
+            })
+            snack.show()
         }
 
     }

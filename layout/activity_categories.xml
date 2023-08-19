@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="ADHD"
                 android:backgroundTint="@color/secondary"
-                android:textSize="22sp"
+                android:textSize="25sp"
                 android:layout_marginBottom="30dp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="Autism"
                 android:backgroundTint="@color/secondary"
-                android:textSize="22sp"
+                android:textSize="25sp"
                 android:layout_marginBottom="30dp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -77,18 +77,22 @@
                 android:layout_height="wrap_content"
                 android:text="Depression"
                 android:backgroundTint="@color/secondary"
-                android:textSize="22sp" />
+                android:textSize="25sp" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-
-    <ImageView
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnSettings"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:srcCompat="@android:drawable/ic_menu_preferences" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondary"
+        android:contentDescription="settings"
+        android:src="@drawable/baseline_settings_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20dp"/>
 
 
 </LinearLayout>

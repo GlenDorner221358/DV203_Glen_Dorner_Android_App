@@ -13,6 +13,12 @@
         android:theme="@style/Theme.BrainSurgeon"
         tools:targetApi="31">
         <activity
+            android:name="com.example.brainsurgeon.Settings"
+            android:exported="true" />
+        <activity
+            android:name="com.example.brainsurgeon.Results"
+            android:exported="true" />
+        <activity
             android:name="com.example.brainsurgeon.Questionss"
             android:exported="true" />
         <activity

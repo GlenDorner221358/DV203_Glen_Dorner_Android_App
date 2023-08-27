@@ -39,20 +39,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        view last score
-        binding.lastscore.setOnClickListener{
-            val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
-            val lastUser = sharedPref.getString("last_user", "No user found")
-            val lastScore = sharedPref.getInt("last_score", 0)
-
-            Log.d("LAST USER FROM STORAGE: ", lastUser + lastScore.toString())
-
-            val snack = Snackbar.make(it, lastUser!!, Snackbar.LENGTH_LONG)
-            snack.setAction(lastScore.toString(), View.OnClickListener{
-                //nothing
-            })
-            snack.show()
-        }
-
     }
 }

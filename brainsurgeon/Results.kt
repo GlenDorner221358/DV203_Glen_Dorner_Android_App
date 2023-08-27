@@ -19,7 +19,13 @@ class Results : AppCompatActivity() {
 //        get results
         val username = intent?.extras?.getString("username")
         val totalQuestions = intent.getIntExtra("totalQuestions", 0)
-        var score = intent.extras?.getInt("score", 0)
+        var score = intent.getIntExtra("score", 0)
+        val category = intent.extras?.getInt("catbut", 1)
+
+        val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+        val lastADHDScore = sharedPref.getInt("last_ADHD_score", 0)
+        val lastAutScore = sharedPref.getInt("last_Aut_score", 0)
+        val lastDepScore = sharedPref.getInt("last_Dep_score", 0)
 
 
 //        update ui
@@ -33,19 +39,44 @@ class Results : AppCompatActivity() {
         binding.finalscore.text = "You scored: " + score.toString() + "/" + totalQuestions.toString()
 
 //        save results
-        val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
+        if (category == 1) {
+            if (lastADHDScore < score) {
+                val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.apply {
+                    putInt("last_ADHD_score", score!!)
+                    apply() //actually saves the edits
+                }
+            }
 
-        editor.apply{
-            putString("last_user", username)
-            putInt("last_score", score!!)
-            apply() //actually saves the edits
+            //nothing
+
+        } else if (category == 2) {
+            if (lastAutScore < score) {
+                val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.apply{
+                    putInt("last_Aut_score", score!!)
+                    apply() //actually saves the edits
+                }
+            }
+            //nothing
+        } else {
+            if (lastDepScore < score) {
+                val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.apply {
+                    putInt("last_Dep_score", score!!)
+                    apply() //actually saves the edits
+                }
+            }
+            //nothing
         }
+
 
         binding.back2Cat.setOnClickListener() {
             val intent = Intent(this@Results, Categories::class.java)
             intent.putExtra("username", username.toString())
-            intent.putExtra("score", score)
             startActivity(intent)
             finish()
         }
